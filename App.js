@@ -1,13 +1,11 @@
 import React, {useState} from 'react';
-
-
 import {
   Text,
   StyleSheet,
   View,
   FlatList
 } from 'react-native';
-
+import Cita from './componentes/Cita';
 const App= () => {
   // definir el state de citas
 const [citas, setCitas] = useState([
@@ -22,13 +20,7 @@ const [citas, setCitas] = useState([
       </Text>
       <FlatList 
         data={citas}
-        renderItem={ ({item}) =>(
-          <View>
-            <Text>{
-              item.paciente
-            }</Text>
-          </View>
-        )
+        renderItem={ ({item}) =><Cita  item={item} />
         }
         keyExtractor={cita => cita.id}
       />
